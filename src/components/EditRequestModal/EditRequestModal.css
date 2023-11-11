@@ -1,0 +1,75 @@
+.modal {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+
+  background-color: #242424;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin: 0;
+
+  border-radius: 15px;
+}
+.modalWrapper {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0;
+  margin: 0;
+
+  top: 0;
+}
+
+input,
+select,
+textarea,
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+label {
+  font-weight: bold;
+  align-self: flex-start;
+}
+
+button {
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.buttonSave:hover {
+  background-color: #2980b9; /* Darker button color on hover */
+}
+
+.buttonSave {
+  background-color: #3498db; /* Edit button color */
+  margin-right: 8px;
+}
+
+.buttonCancel {
+  background-color: #e74c3c; /* Delete button color */
+}
+.buttonCancel:hover {
+  background-color: #c0392b; /* Darker delete button color on hover */
+}
+
+#editedParcelDescription {
+  min-width: 100px;
+  min-height: 50px;
+
+  max-width: 200px;
+  max-height: 100px;
+}
