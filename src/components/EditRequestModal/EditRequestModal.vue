@@ -38,6 +38,7 @@ export default {
   },
   methods: {
     onClick(e) {
+      // Close the modal if the user clicks outside of it
       if (e.target === e.currentTarget) {
         this.cancelChanges();
       }

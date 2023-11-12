@@ -111,7 +111,7 @@ export default defineComponent({
 
   methods: {
     createRequest(): void {
-      // Add the new request to the list of requests
+      // Add the new request to the list of requests after validation
       if (this.validateForm()) {
         this.requests.push({
           id: Date.now(),
@@ -123,6 +123,7 @@ export default defineComponent({
         });
       }
 
+      // Save the list of requests to LocalStorage
       localStorage.setItem('requests', JSON.stringify(this.requests));
 
       // Clear the form fields
@@ -134,6 +135,7 @@ export default defineComponent({
     },
 
     editRequest(request: Request): void {
+      // Show the modal and set the request to be edited
       this.editedRequest = { ...request };
       this.isModalVisible = true;
     },
@@ -171,11 +173,30 @@ export default defineComponent({
     },
 
     validateForm(): boolean {
+      // Validate the form fields
       if (
         Number(this.dispatchDate.slice(0, 4)) < 1990 ||
         Number(this.dispatchDate.slice(0, 4)) > new Date().getFullYear() + 5
       ) {
         alert('Please enter a valid date');
+        return false;
+      } else if (this.dispatchDate === '') {
+        alert('Please enter a valid date');
+        return false;
+      }
+
+      if (this.fromCity === '') {
+        alert('Please enter a valid city');
+        return false;
+      }
+
+      if (this.toCity === '') {
+        alert('Please enter a valid city');
+        return false;
+      }
+
+      if (this.parcelType === '') {
+        alert('Please select a valid parcel type');
         return false;
       }
 
