@@ -47,7 +47,6 @@ export default {
       this.$emit('save-changes', this.editedRequest);
     },
     cancelChanges() {
-      // Emit an event to inform the parent component about the changes
       this.$emit('cancel-changes', this.editedRequest);
     },
   },

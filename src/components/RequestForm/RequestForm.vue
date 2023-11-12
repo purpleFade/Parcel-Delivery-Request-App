@@ -144,8 +144,10 @@ export default defineComponent({
         (request) => request.id === editedRequest.id,
       );
       if (index !== -1) {
-        this.requests.splice(index, 1, editedRequest);
-        localStorage.setItem('requests', JSON.stringify(this.requests));
+        if (this.validateForm()) {
+          this.requests.splice(index, 1, editedRequest);
+          localStorage.setItem('requests', JSON.stringify(this.requests));
+        }
       }
 
       // Hide the modal
